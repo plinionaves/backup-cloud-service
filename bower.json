@@ -1,0 +1,25 @@
+{
+  "name": "cloud-backup-service",
+  "description": "Serviço de backup de arquivos em nuvem",
+  "main": "server.js",
+  "authors": [
+    "Plínio Naves"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "cloud",
+    "backup"
+  ],
+  "homepage": "https://github.com/plinionaves/cloud-backup-service",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5"
+  }
+}
