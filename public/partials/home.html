@@ -41,7 +41,7 @@
   <div class="item" ng-repeat="(key, progress) in home.progresses">
     <span class="file-name" ng-bind="key"></span>
     <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-valuenow="{{progress.valueNow}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress.valueNow}}%;">
+      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{progress.valueNow}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress.valueNow}}%;">
         {{progress.valueNow}}%
       </div>
     </div>
