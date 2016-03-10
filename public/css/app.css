@@ -1,0 +1,23 @@
+.upload-list {
+  width: 350px;
+  height: auto;
+  background: #ddd;
+  padding: 10px;
+  box-shadow: 1px 1px 3px #ccc;
+  position: absolute;
+  bottom:0;
+  right: 0;
+  margin-bottom: 15px;
+  margin-right: 15px;
+}
+
+.upload-list .item {
+  margin: 0;
+  padding: 0;
+
+}
+
+.upload-list .item .file-name {
+  color: #333;
+  font-size: 12px;
+}

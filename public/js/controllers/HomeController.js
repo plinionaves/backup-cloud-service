@@ -6,6 +6,14 @@
 
     var that = this;
     that.files = [];
+    that.progresses = {
+      /*'arquivo de teste': {
+        valueNow: 50
+      },
+      'outro arquivo': {
+        valueNow: 35
+      }*/
+    };
 
     $http.get('/file')
       .then(function(response) {
@@ -30,7 +38,13 @@
                 console.log(response.status + ': ' + response.data);
         }, function progress(evt) {
             // Math.min is to fix IE which reports 200% sometimes
-            that.uploadProgress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            var progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            that.progresses[file.name] = {
+              valueNow: progress
+            }
+            if(progress == 100) {
+              delete that.progresses[file.name];
+            }
         });
       });
     };
@@ -53,7 +67,14 @@
               console.error(error);
             });
         }
-    }
+    };
+
+    that.isObjectEmpty = function(object) {
+      for(var property in object) {
+        return false;
+      }
+      return true;
+    };
 
   }]);
 

@@ -36,3 +36,4 @@ node_modules
 public/vendor
 
 .access
+public/storage
