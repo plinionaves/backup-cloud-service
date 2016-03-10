@@ -1,6 +1,7 @@
 var express  =    require('express');
 var load     =    require('express-load');
 var bodyParser =  require('body-parser');
+var multipart = require('connect-multiparty');
 
 module.exports = function() {
 
@@ -14,6 +15,9 @@ module.exports = function() {
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(bodyParser.json());
     //app.use(require('method-override')());
+    app.use(multipart({
+      uploadDir: 'public/storage'
+    }));
 
     // template engine
     /*app.set('view engine', 'ejs');
