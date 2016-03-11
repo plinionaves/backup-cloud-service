@@ -30,7 +30,7 @@
         })
         .then(function success(response) {
             $timeout(function () {
-                that.files.push(response.data);
+                that.files.unshift(response.data);
                 console.log(response);
             });
         }, function error(response) {
