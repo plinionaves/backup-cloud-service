@@ -4,12 +4,13 @@ module.exports = function(app) {
   var File = app.models.file;
 
   homeController.read = function(req, res) {
-    var _id = req.params._id;
+    var _id = req.params.id;
     File.findById(_id).exec()
       .then(
         function(file) {
           if(!file) throw new Error('File not found!');
-          res.json(file);
+          res.download(file.path, file.originalName);
+          //res.json(file);
         },
         function(err) {
           console.log(err);

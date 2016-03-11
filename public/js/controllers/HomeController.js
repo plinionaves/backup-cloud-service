@@ -76,6 +76,22 @@
       return true;
     };
 
+    that.getFileSize = function(size) {
+      var level = {
+        kb: 1000000,
+        mb: 1000000000,
+        gb: 1000000000000
+      };
+      if(size < level.kb) {
+        size = ((size/1000).toFixed(1)) + ' KB';
+      } else if(size >= level.kb && size < level.mb) {
+        size = ((size/Math.pow(1000, 2)).toFixed(1)) + ' MB';
+      } else if(size >= level.mb && size < level.gb) {
+        size = ((size/Math.pow(1000, 3)).toFixed(1)) + ' GB';
+      }
+      return size.toString().replace('.', ',');
+    };
+
   }]);
 
 })();
