@@ -30,7 +30,10 @@
         })
         .then(function success(response) {
             $timeout(function () {
-                that.files.unshift(response.data);
+                var newFile = response.data;
+                that.files.unshift(newFile);
+                // delete field of upload bar
+                delete that.progresses[newFile.originalName];
                 console.log(response);
             });
         }, function error(response) {
@@ -41,9 +44,6 @@
             var progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
             that.progresses[file.name] = {
               valueNow: progress
-            }
-            if(progress == 100) {
-              delete that.progresses[file.name];
             }
         });
       });

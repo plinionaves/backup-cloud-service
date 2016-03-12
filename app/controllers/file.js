@@ -20,7 +20,7 @@ module.exports = function(app) {
   };
 
   homeController.readAll = function(req, res) {
-    File.find().exec()
+    File.find({}, null, {sort: {date: -1}}).exec()
       .then(
         function(files) {
           res.json(files);
