@@ -6,6 +6,7 @@
 
     var that = this;
     that.files = [];
+    that.errors = [];
     that.progresses = {
       /*'arquivo de teste': {
         valueNow: 50
@@ -39,6 +40,16 @@
         }, function error(response) {
             if (response.status > 0)
                 console.log(response.status + ': ' + response.data);
+            delete that.progresses[response.data.op.originalName];
+            console.log(that.errors);
+            that.errors.push({
+              code: response.data.code,
+              message: 'Arquivo duplicado!',
+              messageSecondary: 'Você já subiu este arquivo para o servidor!'
+            });
+            $timeout(function () {
+              that.errors = [];
+            }, 5000);
         }, function progress(evt) {
             // Math.min is to fix IE which reports 200% sometimes
             var progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
