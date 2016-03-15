@@ -33,7 +33,7 @@
       </thead>
       <tbody>
         <tr ng-hide="home.files.length > 0"><td colspan="5" class="text-center">Nenhum arquivo disponível.</td></tr>
-        <tr ng-repeat="file in home.files | filter: home.search">
+        <tr ng-repeat="file in home.files | orderBy: file.date : true | filter: home.search">
           <td ng-bind="file.originalName"></td>
           <td ng-bind="home.getFileSize(file.size)" class="text-right"></td>
           <td ng-bind="file.date | date: 'dd/MM/yyyy HH:mm:ss'"></td>
