@@ -9,7 +9,7 @@ module.exports = function() {
 
     // variavel de ambiente
     app.set('port', 3000);
-    //app.set('host', '162.243.16.112')
+    //app.set('host', '162.243.16.112/kiko')
 
     // middleware
     app.use(express.static('./public'));
