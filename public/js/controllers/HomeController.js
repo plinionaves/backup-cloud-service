@@ -32,7 +32,7 @@
         .then(function success(response) {
             $timeout(function () {
                 var newFile = response.data;
-                that.files.unshift(newFile);
+                that.files.push(newFile);
                 // delete field of upload bar
                 delete that.progresses[newFile.originalName];
                 console.log(response);
